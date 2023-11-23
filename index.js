@@ -1,5 +1,7 @@
 import { getAllFechas, saveFecha, separarFechaHora } from './firebase.js';
 var mesActual =localStorage.getItem('mesActual');
+const fechasinbd = {};
+
 /**function saveFechaSelect() {
     calendar.getElement().addEventListener('change', e => {
         var resultado = calendar.value().format('LLL');
@@ -11,8 +13,11 @@ const mostrarFechaMes = async (mes) => {
     const contentFechas = document.getElementById("fechas-contenedor");
     const querySnapshot = await getAllFechas();
     let template = "";
-
-    querySnapshot.forEach(element => {
+    const fechasinbdComoString = JSON.stringify(querySnapshot);
+    
+        // Guardar la cadena JSON en el localStorage bajo una clave específica
+        localStorage.setItem('fechasinbd', fechasinbdComoString);
+        querySnapshot.forEach(element => {
         let resultado = separarFechaHora(element.fecha);
 
         if (mes.trim().toLowerCase() === resultado.mes.trim().toLowerCase()) {
@@ -23,6 +28,9 @@ const mostrarFechaMes = async (mes) => {
                 </div>
                 <span class="badge rounded-pill" style="background-color: #FBA007;">${resultado.dia}</span>
             </li>`;
+
+
+
         }
     });
 
@@ -41,7 +49,6 @@ const btsLeft = document.getElementById('btnEventLeft');
 const btsRight = document.getElementById('btnEventRight');
 
 btsLeft.addEventListener('click', async () => {
-    console.log(localStorage.getItem('mesActual'));
 
     mostrarFechaMes(localStorage.getItem('mesActual'));
 });

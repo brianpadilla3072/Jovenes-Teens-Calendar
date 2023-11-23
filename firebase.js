@@ -24,11 +24,11 @@ import { getFirestore, collection,addDoc,getDocs  } from "https://www.gstatic.co
   // Your web app's Firebase configuration
   const firebaseConfig = {
     apiKey: "AIzaSyDiaTR7vehKdCH3g3qg0A955ISU6Ge3f6Y",
-    authDomain: "jovenes-teen-calendar.firebaseapp.com",
-    projectId: "jovenes-teen-calendar",
-    storageBucket: "jovenes-teen-calendar.appspot.com",
-    messagingSenderId: "296381667925",
-    appId: "1:296381667925:web:e17b9dc68c6841f42952dc"
+  authDomain: "jovenes-teen-calendar.firebaseapp.com",
+  projectId: "jovenes-teen-calendar",
+  storageBucket: "jovenes-teen-calendar.appspot.com",
+  messagingSenderId: "296381667925",
+  appId: "1:296381667925:web:e17b9dc68c6841f42952dc"
   };
 
   // Initialize Firebase
